@@ -1,6 +1,8 @@
 import { GetPlaceDetails, PHOTO_REF_URL } from '@/config/GlobalAPI';
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
+import placeImg from '@/assets/places.jpg';
+
 
 function UserTripCardItem({trip}) {
     const [photoUrl,setPhotoUrl] = useState();
@@ -22,7 +24,7 @@ function UserTripCardItem({trip}) {
   return (
     <Link to={'/view-trip/' + trip?.id}>
     <div className = 'hover:scale-105 transition-all '>
-        <img src={photoUrl?photoUrl: '/src/assets/places.jpg' }
+        <img src={photoUrl?photoUrl: {placeImg} }
         className="object-cover rounded-xl h-[220px]"/>
         <div>
             <h2 className='font-bold text-lg'>{trip?.userPreference?.location?.label}</h2>

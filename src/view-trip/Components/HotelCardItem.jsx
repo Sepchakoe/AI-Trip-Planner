@@ -1,7 +1,7 @@
 import { GetPlaceDetails, PHOTO_REF_URL } from '@/config/GlobalAPI';
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import hotelImage from '@/assets/Hotel.jpg';
+import hotelImg from '@/assets/Hotel.jpg';
 
 
 function HotelCardItem({ hotel }) {
@@ -26,7 +26,7 @@ function HotelCardItem({ hotel }) {
         <Link to={'https://www.google.com/maps/search/?api=1&query=' + hotel.hotelName + "," + hotel?.hotelAddress} target='_blank' >
             <div className='hover:scale-105 transition-all cursor-pointer'>
 
-                <img src = {photoUrl?photoUrl:{hotelImage}} className='rounded-xl h-[180px] w-full object-cover' />
+                <img src = {photoUrl?photoUrl:{hotelImg}} className='rounded-xl h-[180px] w-full object-cover' />
                 
                 <div className='my-2 flex flex-col gap-2'>
                     <h2 className='font-medium '>{hotel?.hotelName}</h2>
