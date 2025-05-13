@@ -17,6 +17,8 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog"
 import logo from '@/assets/logo.jpg';
+import icon from '@/assets/icon.png';
+
 
 function Header() {
 
@@ -84,15 +86,18 @@ function Header() {
           <Button onClick={() => setOpenDialog(true)}>Sign In</Button>
         }
       </div>
-      <Dialog open={openDialog}>
+      <Dialog open={openDialog} onOpenChange={setOpenDialog}>
 
       <DialogContent>
         <DialogHeader>
 
-          <DialogDescription>
-            <img src={logo} />
-            <h2 className='font-bold text-lg mt-7'>Sign In With Google</h2>
-            <p>Sign in to the App with Google authentication securely</p>
+          <DialogTitle className="text-center">
+            <img src={icon} className="w-25 mx-auto mb-4" alt="Logo" />
+            Sign In with Google
+          </DialogTitle>
+
+          <DialogDescription className="text-center">
+            Sign in to the App with Google authentication securely.
 
             <Button
 
