@@ -1,3 +1,6 @@
+import friendsIcon from '../assets/friends.png';
+
+
 export const SelectTravelesList=[
     {
         id:1,
