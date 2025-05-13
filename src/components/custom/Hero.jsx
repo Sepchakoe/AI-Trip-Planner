@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import landing from '@/assets/landing.png';
 
 
 function Hero() {
@@ -17,7 +18,7 @@ function Hero() {
         <Button> Get Started </Button>
       </Link>
 
-      <img src='/src/assets/landing.png' className='' />
+      <img src={landing} className='' />
       
     </div>
   );

@@ -20,6 +20,8 @@ import { doc, setDoc } from "firebase/firestore";
 import { db } from "@/config/firebase";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
+import logo from '@/assets/logo.jpg';
+
 
 
 
@@ -186,7 +188,7 @@ function CreateTrip() {
         <DialogContent>
           <DialogHeader>
           <DialogTitle className="text-center">
-            <img src='/src/assets/logo.jpg' className="w-28 mx-auto mb-4" alt="Logo" />
+            <img src={logo} className="w-28 mx-auto mb-4" alt="Logo" />
             Sign In with Google
           </DialogTitle>
           <DialogDescription className="text-center">

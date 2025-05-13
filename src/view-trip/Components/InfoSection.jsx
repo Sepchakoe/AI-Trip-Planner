@@ -2,6 +2,8 @@ import { Button } from '@/components/ui/button';
 import { GetPlaceDetails } from '@/config/GlobalAPI';
 import React, { useEffect, useState } from 'react'
 import { GrSend } from "react-icons/gr";
+import placeholder from '@/assets/placeholder.jpg';
+
 
 function InfoSection({trip}) {
 
@@ -24,7 +26,7 @@ function InfoSection({trip}) {
   }
   return (
     <div>
-        <img src = {photoUrl?photoUrl:'/src/assets/placeholder.jpg'} className='h-[340px] w-full object-cover rounded-xl'/>
+        <img src = {photoUrl?photoUrl:{placeholder}} className='h-[340px] w-full object-cover rounded-xl'/>
 
         <div className='flex justify-between items-center'>
             <div className=' my-5 flex flex-col gap-2'>
