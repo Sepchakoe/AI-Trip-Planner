@@ -14,17 +14,34 @@ function UserTripCardItem({trip}) {
     const data={
       textQuery:trip?.userPreference?.location?.label
     }
-    const result=await GetPlaceDetails(data).then(resp=>{
-      console.log(resp.data.place[0].photos[3].name);
 
-      const PhotoUrl=PHOTO_REF_URL.replace('{NAME}',resp.data.places[0].photos[3].name);
-      setPhotoUrl(PhotoUrl);
-    })
-  }
+    try {
+      const resp = await GetPlaceDetails(data);
+      const photos = resp?.data?.places?.[0]?.photos;
+
+      if (photos && photos.length > 0) {
+        const photoName = photos[0].name;
+        const PhotoUrl = PHOTO_REF_URL.replace('{NAME}', photoName);
+        setPhotoUrl(PhotoUrl);
+      } else {
+        setPhotoUrl(null); // fallback
+      }
+    } catch (error) {
+      console.error('Error fetching trip photo:', error);
+      setPhotoUrl(null);
+    }
+  };
+  //   const result=await GetPlaceDetails(data).then(resp=>{
+  //     console.log(resp.data.place[0].photos[3].name);
+
+  //     const PhotoUrl=PHOTO_REF_URL.replace('{NAME}',resp.data.places[0].photos[3].name);
+  //     setPhotoUrl(PhotoUrl);
+  //   })
+  // }
   return (
     <Link to={'/view-trip/' + trip?.id}>
     <div className = 'hover:scale-105 transition-all '>
-        <img src={photoUrl?photoUrl: {placeImg} }
+        <img src={photoUrl || placeImg }
         className="object-cover rounded-xl h-[220px]"/>
         <div>
             <h2 className='font-bold text-lg'>{trip?.userPreference?.location?.label}</h2>

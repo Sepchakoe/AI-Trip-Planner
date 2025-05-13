@@ -17,16 +17,33 @@ function InfoSection({trip}) {
     const data={
       textQuery:trip?.userPreference?.location?.label
     }
-    const result = await GetPlaceDetails(data).then(resp=>{
-      console.log(resp.data.places[0].photos[3].name);
+  //   
+  try {
+    const response = await GetPlaceDetails(data);
+    const photos = response?.data?.places?.[0]?.photos;
 
-      const PhotoUrl = PHOTO_REF_URL.replace('{NAME}',resp.data.places[0].photos[3].name);
+    if (photos && photos.length > 0) {
+      const photoName = photos[0].name; // safer than hardcoding index
+      const PhotoUrl = PHOTO_REF_URL.replace('{NAME}', photoName);
       setPhotoUrl(PhotoUrl);
-    })
+    } else {
+      setPhotoUrl(null); // fallback to placeholder
+    }
+  } catch (error) {
+    console.error('Error fetching place photo:', error);
+    setPhotoUrl(null); // fallback to placeholder
   }
+};
+
   return (
     <div>
-        <img src = {photoUrl?photoUrl:{placeholder}} className='h-[340px] w-full object-cover rounded-xl'/>
+        {/* <img src = {photoUrl?photoUrl:{placeholder}} className='h-[340px] w-full object-cover rounded-xl'/> */}
+        <img
+          src={photoUrl || placeholder}
+          alt="Trip location"
+          className="h-[340px] w-full object-cover rounded-xl"
+          referrerPolicy="no-referrer"
+        />
 
         <div className='flex justify-between items-center'>
             <div className=' my-5 flex flex-col gap-2'>
