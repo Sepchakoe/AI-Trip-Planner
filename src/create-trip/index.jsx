@@ -171,10 +171,11 @@ function CreateTrip() {
         </div>
       </div>
 
-      <div className="my-10 justify-end flex">
+      <div className="my-15 justify-center flex">
         <Button 
           disabled = {Loading}
-        onClick={OnGenerateTrip}>
+          onClick={OnGenerateTrip}
+        >
           {Loading ?
           <AiOutlineLoading3Quarters className="h-7 w-7 animate-spin"/>: 'Generate Trip'
           }
@@ -185,7 +186,7 @@ function CreateTrip() {
         <DialogContent>
           <DialogHeader>
           <DialogTitle className="text-center">
-            <img src='/logo.svg' className="w-28 mx-auto mb-4" alt="Logo" />
+            <img src='/src/assets/logo.jpg' className="w-28 mx-auto mb-4" alt="Logo" />
             Sign In with Google
           </DialogTitle>
           <DialogDescription className="text-center">

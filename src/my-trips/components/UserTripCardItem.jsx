@@ -13,15 +13,15 @@ function UserTripCardItem({trip}) {
       textQuery:trip?.userPreference?.location?.label
     }
     const result=await GetPlaceDetails(data).then(resp=>{
-      console.log(resp.data.place_id[0].photos[3].name);
+      console.log(resp.data.place[0].photos[3].name);
 
       const PhotoUrl=PHOTO_REF_URL.replace('{NAME}',resp.data.places[0].photos[3].name);
       setPhotoUrl(PhotoUrl);
     })
   }
   return (
-    <Link to={'/view-trip/'+trip?.id}>
-    <div className='hover:scale-105 transition-all '>
+    <Link to={'/view-trip/' + trip?.id}>
+    <div className = 'hover:scale-105 transition-all '>
         <img src={photoUrl?photoUrl: '/src/assets/places.jpg' }
         className="object-cover rounded-xl h-[220px]"/>
         <div>

@@ -35,7 +35,7 @@ function InfoSection({trip}) {
                     <h2 className='p-1 px-3 bg-gray-200 rounded-full text-gray-500'>🥂 Traveler: {trip.userPreference?.noOfTraveler} </h2>
                 </div>
             </div>
-            <Button><GrSend /></Button>
+            {/* <Button><GrSend /></Button> */}
         </div>
     </div>
   )

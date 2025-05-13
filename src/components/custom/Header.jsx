@@ -69,8 +69,7 @@ function Header() {
 
             <Popover>
             <PopoverTrigger>
-              <img src={user?.picture} className='h-[35px] w-[35px] rounded-full'/>
-            </PopoverTrigger>
+              <img src={user?.picture} className='h-[35px] w-[35px] rounded-full'/>            </PopoverTrigger>
             <PopoverContent>
               <h2 className='cursor-pointer' onClick={() => {
                 googleLogout;
