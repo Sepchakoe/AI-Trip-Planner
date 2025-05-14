@@ -18,10 +18,13 @@ import {
 } from "@/components/ui/dialog";
 import logo from "@/assets/logo.jpg";
 import icon from "@/assets/icon.png";
+import { useNavigate, useNavigation } from "react-router-dom";
 
 function Header() {
   const user = JSON.parse(localStorage.getItem("user"));
   const [openDialog, setOpenDialog] = useState(false);
+  //const navigation = useNavigation();
+  // const navigate = useNavigate();
 
   useEffect(() => {
     console.log(user);
@@ -90,7 +93,9 @@ function Header() {
                   onClick={() => {
                     googleLogout(); // Proper function call
                     localStorage.clear(); // Clear all stored user data
-                    window.location.reload(); // Refresh to reset UI
+                    window.location.reload();
+                    //navigation("/");  
+                    //navigate("/");
                   }}
                 >
                   Logout
